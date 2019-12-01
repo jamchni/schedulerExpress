@@ -29,7 +29,6 @@ router.post('/createSchedules', (req, res) => {
         .then(schedules => {
             return res.status(200).json(schedules);
         }).catch(err => {
-        log.error('/createSchedules err ' + JSON.stringify(err));
         return res.status(err.code).json(err.msg);
     });
 });
@@ -39,7 +38,6 @@ router.post('/upsertSchedules', (req, res) => {
         .then(schedules => {
             return res.status(200).json(schedules);
         }).catch(err => {
-        log.error('/upsertSchedules err ' + JSON.stringify(err));
         return res.status(err.code).json(err.msg);
     });
 });
@@ -49,7 +47,6 @@ router.post('/getSchedules', (req, res) => {
         .then(result => {
             return res.status(200).json(result);
         }).catch(err => {
-        log.error('/getSchedules err ' + JSON.stringify(err));
         return res.status(err.code).json(err.msg);
     });
 
@@ -61,21 +58,28 @@ router.put('/updateSchedules', (req, res) => {
         .then(value => {
             return res.status(200).json(value);
         }).catch(err => {
-        log.error('/updateSchedules err ' + JSON.stringify(err));
         return res.status(err.code).json(err.msg);
     });
 });
 
-router.delete('/deletePerson', (req, res) => {
+router.delete('/deleteSchedules', (req, res) => {
 
-    scheduleUtils.deletePerson(req.body)
-        .then(person => {
-            return res.status(200).json(person);
+    scheduleUtils.deleteSchedules(req.body)
+        .then(schedule => {
+            return res.status(200).json(schedule);
         }).catch(err => {
-        let error = errormessages.processError(err);
-        log.error('/deleteSchedule err ' + JSON.stringify(error));
         return res.status(err.code).json(err.msg);
     });
+});
+
+router.get('/getAllSchedules', (req, res) => {
+    return scheduleUtils.getAllSchedules()
+        .then(doc => {
+            return res.status(200).json(doc);
+        })
+        .catch(err => {
+            return res.status(err.code).json(err.msg);
+        });
 });
 
 //=============================================================================

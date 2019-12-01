@@ -109,3 +109,15 @@ exports.updateSchedules = (filter, update) => {
             return Promise.reject(err);
         });
 };
+
+exports.getAllSchedules = () => {
+    return Schedule.find({})
+        .then(result => {
+            if (!_.isEmpty(result)) {
+                return result;
+            }
+            else {
+                return false;
+            }
+        });
+}
