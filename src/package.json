@@ -1,0 +1,21 @@
+{
+  "name": "urlshortner",
+  "version": "1.0.0",
+  "description": "A Node Express service for shortening URLs",
+  "repository": "https://github.com/jamchni/schedulerExpress.git",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "lodash": "^4.17.4",
+    "mongoose": "^5.7.11"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
+  }
+}
