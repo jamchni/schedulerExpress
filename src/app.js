@@ -23,7 +23,7 @@ const app = express();
 const
     port = 3030,
     env = "PRODUCTION",
-    DBURL = process.env.DBURL?process.env.DBURL:"mongodb://mongo:27017/scheduler";
+    DBURL = process.env.DBURL?process.env.DBURL:"mongodb://mongodb:27017/scheduler";
 let db;
 
 //=============================================================================
